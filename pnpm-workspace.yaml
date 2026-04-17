@@ -1,2 +1,2 @@
-packages:
+packages:\n  - 'packages/*'\n  - 'packages/shared-types'
   - 'packages/*'
