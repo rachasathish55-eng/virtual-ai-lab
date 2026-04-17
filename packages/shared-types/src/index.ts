@@ -1,4 +1,4 @@
-export interface StrawberryNode {
+
     id: string;
     name: string;
 }
