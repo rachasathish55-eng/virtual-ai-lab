@@ -80,7 +80,7 @@ async def run_code(websocket: WebSocket):
                 }))
                 continue
 
-            # Execute the code safely
+            # Execute the code safely\nfrom packages.worker.executor import run_node_code\n\n            if language == "python":\n                result = run_node_code(code)\n                await websocket.send_text(json.dumps({\n                    "type": "result",\n                    "id": node_id,\n                    "stdout": result['output'],\n                    "stderr": "",\n                    "status": result['status']\n                }))\n                continue\n            \n            # Existing code for handling unsupported languages\n
             stdout_buf = io.StringIO()
             stderr_buf = io.StringIO()
             status = "success"

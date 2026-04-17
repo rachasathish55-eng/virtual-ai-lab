@@ -1,3 +1,5 @@
+import pytest\n\n@pytest.mark.asyncio\nasync def test_execute_node(websocket):\n    node_id = "node-123"\n    code = "print(\'Hello, World!\')"\n    payload = json.dumps({\'id\': node_id, \'code\': code, \'language\': \'python\'})\n    # Simulate sending the execute_node message\n    await websocket.send_text(payload)\n    # Assert the result\n    result = await websocket.receive_text()\n    assert result[\'type\'] == \'result\'\n    assert result[\'id\'] == node_id\n    assert result[\'status\'] == \'success\'\n    assert result[\'stdout\'] == \'Hello, World!\\n\'\n
+def test_execute_node():\n    node_id = "node-123"\n    code = "print(\'Hello, World!\')"\n    payload = json.dumps({\'id\': node_id, \'code\': code, \'language\': \'python\'})\n    # Simulate sending the execute_node message\n    result = await websocket.send_text(payload)\n    # Assert the result\n    assert result[\'type\'] == \'result\'\n    assert result[\'id\'] == node_id\n    assert result[\'status\'] == \'success\'\n    assert result[\'stdout\'] == \'Hello, World!\\n\'\n
 
 import asyncio
 import websockets
