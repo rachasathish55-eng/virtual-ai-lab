@@ -87,7 +87,7 @@ async def run_code(websocket: WebSocket):
             try:
                 with contextlib.redirect_stdout(stdout_buf), \
                      contextlib.redirect_stderr(stderr_buf):
-                    exec(compile(code, "<StrawberryNode>", "exec"), {})  # noqa: S102
+                    
             except Exception as exc:
                 status = "error"
                 stderr_buf.write(f"{type(exc).__name__}: {exc}")

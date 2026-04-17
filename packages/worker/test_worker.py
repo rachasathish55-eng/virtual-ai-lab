@@ -42,6 +42,7 @@ async def test_execute_code():
         assert result["type"] == "result"
         assert result["status"] == "success"
 
+async def test_execute_node():\n    async with websockets.connect("ws://localhost:7331/ws") as websocket:\n        code = "print(\'Hello from execute_node!\')"  \n        message = {"type": "execute_node", "id": "node-123", "code": code}\n        await websocket.send(json.dumps(message))\n\n        response = await websocket.recv()\n        result = json.loads(response)\n\n        assert result["type"] == "result"\n        assert result["id"] == "node-123"\n        assert result["status"] == "success"\n        assert "Hello from execute_node!" in result["stdout"]\n\n# To run the test, use an asyncio event loop\nif __name__ == "__main__":\n    asyncio.run(test_execute_node())\n
 # To run the test, use an asyncio event loop
 if __name__ == "__main__":
     asyncio.run(test_execute_code())
