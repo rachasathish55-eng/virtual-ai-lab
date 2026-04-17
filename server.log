@@ -1,0 +1,4 @@
+INFO:     Will watch for changes in these directories: ['/workspace']
+INFO:     Uvicorn running on http://0.0.0.0:7331 (Press CTRL+C to quit)
+INFO:     Started reloader process [418] using StatReload
+ERROR:    Error loading ASGI app. Could not import module "main".
