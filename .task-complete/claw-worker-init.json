@@ -1,0 +1,13 @@
+
+{
+  "files": [
+    "packages/agent/requirements.txt",
+    "packages/agent/main.py",
+    "packages/agent/package.json",
+    "packages/agent/README.md"
+  ],
+  "functionality": {
+    "GET /health": "Returns the worker status.",
+    "WebSocket /ws": "Echoes back messages."
+  }
+}
