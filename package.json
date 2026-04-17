@@ -1,12 +1,11 @@
-
 {
+  "name": "virtual-ai-lab",
   "private": true,
-  "workspaces": [
-    "apps/*",
-    "workers/*",
-    "packages/*"
-  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build"
+  },
   "devDependencies": {
-    "turbo": "^1.0.0"
+    "turbo": "latest"
   }
 }
